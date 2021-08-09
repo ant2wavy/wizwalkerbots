@@ -11,7 +11,7 @@ Firstly, this is the setup,{#} spell[enchant] @ target | spell[enchant] @ target
 
 Quick note: configs will loop indefinitely which means you can have one lined configs like: lord[epic] | tempest[epic] to constantly loop storm lord and tempest indefinitely
 
-Spells and enchants go off of the names of what the spells are in the files, you will have to run a separate script to print your cards out for you and then you can use them (You can also just guess). For example, thunder snake enchanted with epic cast at a boss can be called likethunder[epic] @ boss names don't need to be exact, as long as the word itself is contained within the actual spell.
+Spells and enchants go off of the names of what the spells are in the files, you will have to run a separate script to print your cards out for you and then you can use them (You can also just guess). For example, thunder snake enchanted with epic cast at a boss can be called like thunder[epic] @ boss names don't need to be exact, as long as the word itself is contained within the actual spell.
 
 If you do not have an enchant you want to put on the spell, leave enchant blank without brackets, i.e. thunder @ boss
 
