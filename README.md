@@ -3,7 +3,7 @@ Repository for my WizWalker bot scripts. Enjoy :)
 
 Extract the zip, set your configs, and run the exe. More information on how to run each individual bot is listed within the README file contained in the zip. PLEASE READ THE README BEFORE CONTACTING ME ON DISCORD FOR HELP.
 
-# Contact: ant2#8198
+# Discord: ant2#8198
 
 # Spell Configurations Guide (Credit to MajorPain1)
 
