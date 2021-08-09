@@ -1,22 +1,11 @@
 # wizwalkerbots
-Simple repo to house my WizWalker bots. Everything you need to know is in the README. Please do not try to dm me.
-Don't make messages in #support about my bots until you read the entire README. It's called README for a reason. If you cannot read, I'm sure I can find someone to read it to you.
+Repository for my WizWalker bot scripts. Enjoy :)
 
-Note: you need a house with a world gate behind you equipped
-Running from releases
+Extract the zip, set your configs, and run the exe. More information on how to run each individual bot is listed within the README file contained in the zip. PLEASE READ THE README BEFORE CONTACTING ME ON DISCORD FOR HELP.
 
-    Download from here
-    Extract the zip
-    Set your configs using the guide below
-    Double click the exe in the desired location you want to run the script
+Contact: ant2#8198
 
-Running from source
-
-Run pip install -r requirements.txt to install required libraries
-To run from source do py -m {name of bot} in the main github folder
-
-Most people should run from releases. Just extract the zip, set your configs, and run the exe.
-Spell Config guide
+Spell Configurations Guide (Credit to MajorPain1)
 
 Firstly, this is the setup,{#} spell[enchant] @ target | spell[enchant] @ target | etc.
 
