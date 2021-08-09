@@ -5,6 +5,13 @@ Extract the zip, set your configs, and run the exe. More information on how to r
 
 # Discord: ant2#8198
 
+# Basic bot installation steps.
+
+  1. Download from release [here:](https://github.com/ant2wavy/wizwalkerbots/releases)
+  2. Extract the zip to desktop
+  3. Read the README
+  4. Enjoy!
+
 # Spell Configurations Guide (Credit to MajorPain1)
 
 Firstly, this is the setup,{#} spell[enchant] @ target | spell[enchant] @ target | etc.
