@@ -1,6 +1,5 @@
-# Credit to MajorPain1 for the core functionality/utils that this bot utilizes.
-
 import asyncio
+import pathlib
 from time import time
 
 from wizwalker.constants import Keycode
@@ -54,14 +53,15 @@ async def main(sprinter):
             await asyncio.gather(*[go_to_closest_mob(p)])
 
         # Yevgeny fight
-        print("Starting Yevgeny fight.")
+        print("Preparing combat configs")
         combat_handlers = []
-        await asyncio.sleep(2)
-        for p in clients:
-            combat_handlers.append(
-                SprintyCombat(p, CombatConfigProvider(f'sideboss_configs/{p.title}spellconfig.txt', cast_time=2)))
-        await asyncio.gather(*[h.wait_for_combat() for h in combat_handlers])
-        print("Yevgeny defeated, moving to Shane von Shane.")
+        for p in clients:  # Setting up the parsed configs to combat_handlers
+            file_path = pathlib.Path(__file__).parent / "sideboss_configs" / f"{p.title}spellconfig.txt"
+            combat_handlers.append(SprintyCombat(p, CombatConfigProvider(str(file_path.absolute()), cast_time=1)))
+        print("Starting Yevgeny fight.")
+        await asyncio.sleep(0.5)
+        await asyncio.gather(*[h.wait_for_combat() for h in combat_handlers])  # Battle
+        print("Combat ended")
         print()
 
         # Go through second section of dialogue after Yevgeny
@@ -101,14 +101,15 @@ async def main(sprinter):
             await asyncio.gather(*[go_to_closest_mob(p)])
 
         # Second boss fight (Shane Von Shane):
-        print("Starting Shane Von Shane fight.")
+        print("Preparing combat configs")
         combat_handlers = []
-        await asyncio.sleep(2)
-        for p in clients:
-            combat_handlers.append(
-                SprintyCombat(p, CombatConfigProvider(f'sideboss_configs/{p.title}spellconfig.txt', cast_time=1.5)))
-        await asyncio.gather(*[h.wait_for_combat() for h in combat_handlers])
-        print("Shane von Shane defeated, moving to Malistaire fight.")
+        for p in clients:  # Setting up the parsed configs to combat_handlers
+            file_path = pathlib.Path(__file__).parent / "sideboss_configs" / f"{p.title}spellconfig.txt"
+            combat_handlers.append(SprintyCombat(p, CombatConfigProvider(str(file_path.absolute()), cast_time=1)))
+        print("Starting Shane fight.")
+        await asyncio.sleep(0.5)
+        await asyncio.gather(*[h.wait_for_combat() for h in combat_handlers])  # Battle
+        print("Combat ended")
         print()
 
         await asyncio.sleep(1)
@@ -141,13 +142,14 @@ async def main(sprinter):
             await asyncio.gather(*[go_to_closest_mob(p)])
 
         # Final boss fight (Malistaire)
-        print("Starting Malistaire fight.")
+        print("Preparing combat configs")
         combat_handlers = []
-        await asyncio.sleep(2)
-        for p in clients:
-            combat_handlers.append(
-                SprintyCombat(p, CombatConfigProvider(f'mainboss_configs/{p.title}spellconfig.txt', cast_time=1.5)))
-        await asyncio.gather(*[h.wait_for_combat() for h in combat_handlers])
+        for p in clients: # Setting up the parsed configs to combat_handlers
+            file_path = pathlib.Path(__file__).parent / "mainboss_configs" / f"{p.title}spellconfig.txt"
+            combat_handlers.append(SprintyCombat(p, CombatConfigProvider(str(file_path.absolute()), cast_time=1)))
+        print("Starting Malistaire fight.")
+        await asyncio.sleep(0.5)
+        await asyncio.gather(*[h.wait_for_combat() for h in combat_handlers]) # Battle
         print("Combat ended")
         print()
 
@@ -166,7 +168,7 @@ async def main(sprinter):
         await asyncio.sleep(5)
         await asyncio.gather(*[go_through_dialog(p) for p in clients])
         await asyncio.sleep(60)
-        print("Returning to sigil for next run.")
+        print("Returning to sigil.")
         print()
 
         # Return to p1 to sigil

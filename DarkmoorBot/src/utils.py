@@ -1,9 +1,5 @@
-# Credit to MajorPain1 for the core functionality/utils that this bot utilizes.
-
 import asyncio
 
-
-from wizwalker import XYZ
 from wizwalker.constants import Keycode
 from wizwalker.extensions.wizsprinter.sprinty_client import MemoryReadError, List, Set
 from wizwalker.memory import DynamicClientObject
