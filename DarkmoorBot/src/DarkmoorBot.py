@@ -56,8 +56,8 @@ async def main(sprinter):
         print("Preparing combat configs")
         combat_handlers = []
         for p in clients:  # Setting up the parsed configs to combat_handlers
-            file_path = pathlib.Path(__file__).parent / "sideboss_configs" / f"{p.title}spellconfig.txt"
-            combat_handlers.append(SprintyCombat(p, CombatConfigProvider(str(file_path.absolute()), cast_time=1)))
+            combat_handlers.append(
+                SprintyCombat(p, CombatConfigProvider(f'sideboss_configs/{p.title}spellconfig.txt', cast_time=1)))
         print("Starting Yevgeny fight.")
         await asyncio.sleep(0.5)
         await asyncio.gather(*[h.wait_for_combat() for h in combat_handlers])  # Battle
@@ -104,8 +104,8 @@ async def main(sprinter):
         print("Preparing combat configs")
         combat_handlers = []
         for p in clients:  # Setting up the parsed configs to combat_handlers
-            file_path = pathlib.Path(__file__).parent / "sideboss_configs" / f"{p.title}spellconfig.txt"
-            combat_handlers.append(SprintyCombat(p, CombatConfigProvider(str(file_path.absolute()), cast_time=1)))
+            combat_handlers.append(
+                SprintyCombat(p, CombatConfigProvider(f'sideboss_configs/{p.title}spellconfig.txt', cast_time=1)))
         print("Starting Shane fight.")
         await asyncio.sleep(0.5)
         await asyncio.gather(*[h.wait_for_combat() for h in combat_handlers])  # Battle
@@ -144,9 +144,9 @@ async def main(sprinter):
         # Final boss fight (Malistaire)
         print("Preparing combat configs")
         combat_handlers = []
-        for p in clients: # Setting up the parsed configs to combat_handlers
-            file_path = pathlib.Path(__file__).parent / "mainboss_configs" / f"{p.title}spellconfig.txt"
-            combat_handlers.append(SprintyCombat(p, CombatConfigProvider(str(file_path.absolute()), cast_time=1)))
+        for p in clients:  # Setting up the parsed configs to combat_handlers
+            combat_handlers.append(
+                SprintyCombat(p, CombatConfigProvider(f'mainboss_configs/{p.title}spellconfig.txt', cast_time=1)))
         print("Starting Malistaire fight.")
         await asyncio.sleep(0.5)
         await asyncio.gather(*[h.wait_for_combat() for h in combat_handlers]) # Battle
