@@ -24,13 +24,13 @@ Spells and enchants go off of the names of what the spells are in the files, you
 
 If you do not have an enchant you want to put on the spell, leave enchant blank without brackets, i.e. thunder @ boss
 
-```This list of things you can target goes as follows:
+This list of things you can target goes as follows:
 self
 enemy(#) *# = numbers 0-3 relative to turn order
 ally(#) *same with enemy but it's 0-2 because self
 boss
 aoe *if you have an aoe, you can leave targeting blank i.e. tempest[epic] or for no enchant tempest
-{name of enemy or ally}```
+{name of enemy or ally}
 
 Priority spell casting. Each line is split up by pipes. And after each pipe is another spell. This is the order of spells the script will check before giving up and passing. You can have an infinite amount of priority spells, and you don't need to use priority spells at all. Here's an example of a line using priority spell casting: ```lord[epic] | tempest[epic] | feint[potent] @ boss```
 
