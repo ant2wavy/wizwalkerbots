@@ -37,7 +37,7 @@ Priority spell casting. Each line is split up by pipes. And after each pipe is a
 Specific round casting. If you see back to the original format of the new spell config, you can see the {#}. This is used for casting only on specific rounds, no matter how many times the config loops. The # presents the round number the spell is cast on. Say you want to cast a potent feint on round 1 only, and then loop storm lord and tempest, ```{1} feint[potent] @ boss 
 lord[epic] | tempest[epic]```
 
-Now, any<...>. The any template can be used to say that you want to cast any of a type of spell effect. i.e. any<damage> @ enemy or any<damage & aoe>[any<enchant>]. All the different kinds of specifiers you can use are damage, aoe, heal, heal self, heal other, blade, shield, trap, enchant
+Now, any<...>. The any template can be used to say that you want to cast any of a type of spell effect. i.e. ```any<damage> @ enemy``` or ```any<damage & aoe>[any<enchant>]```. All the different kinds of specifiers you can use are damage, aoe, heal, heal self, heal other, blade, shield, trap, enchant
 Example configs
 
 An example config that will just spam cast any aoe no matter the school:
