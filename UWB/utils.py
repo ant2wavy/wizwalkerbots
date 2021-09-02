@@ -15,6 +15,23 @@ potion_ui_buy = [
 ]
 
 
+async def initiate_combat(client):
+    await client.tp_to_closest_mob()
+    await client.send_key(Keycode.W, 0.2)
+    await asyncio.sleep(5)
+
+    if await client.in_battle():
+        return True
+    else:
+        await asyncio.gather(*[initiate_combat(client)])
+
+
+async def join_combat(p1pos, client):
+    await client.teleport(p1pos)
+    await client.send_key(Keycode.W, 0.2)
+    await asyncio.sleep(1)
+
+
 async def go_to_safe_location(safe_location, client):
     sl_x = safe_location.x
     sl_y = safe_location.y
