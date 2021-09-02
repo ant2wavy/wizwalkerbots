@@ -4,7 +4,7 @@ from time import time
 
 from wizwalker.constants import Keycode
 from wizwalker.extensions.wizsprinter import SprintyCombat, CombatConfigProvider, WizSprinter
-from utils import decide_heal
+from utils import decide_heal, initiate_combat, join_combat
 
 
 async def main(sprinter):
@@ -36,14 +36,15 @@ async def main(sprinter):
         print()
 
         # Battle starter
-        await p1.tp_to_closest_mob()
-        await p1.send_key(Keycode.W, 0.1)
-        await asyncio.sleep(1)
-        p1pos = await p1.body.position()
-        # p2-p4 sent into duel circle
-        for p in clients[1:]:
-            await p.teleport(p1pos)
-            await p.send_key(Keycode.W, 0.1)
+
+        ready_to_join = await asyncio.gather(*[initiate_combat(p1)])
+        if ready_to_join:
+            print(f"[p1] is in the duel circle.")
+            p1pos = await p1.body.position()
+            # p2-p4 sent into duel circle
+            for p in clients[1:]:
+                print(f"[{p.title}] is now joining the duel circle.")
+                await asyncio.gather(*[join_combat(p1pos, p)])
 
         # Battle 2.0:
         print("Preparing combat configs")
@@ -61,11 +62,11 @@ async def main(sprinter):
         # Returning to safe spot
         for p in clients:
             await p.teleport(safe_location)
-            await asyncio.sleep(0.1)
+            await asyncio.sleep(0.8)
 
         # Healing
         await asyncio.gather(*[p.use_potion_if_needed(health_percent=35, mana_percent=5) for p in
-                               clients])  # WizSprinter function now, not WizSDK
+                               clients])
         await asyncio.sleep(5)
 
         # Time
