@@ -27,7 +27,7 @@ If you do not have an enchant you want to put on the spell, leave enchant blank 
 This list of things you can target goes as follows:
 self
 enemy(#) *# = numbers 0-3 relative to turn order
-ally(#) *same with enemy but it's 0-2 because self
+ally(#) *same with enemy but it's 0-2 because self.
 boss
 aoe *if you have an aoe, you can leave targeting blank i.e. tempest[epic] or for no enchant tempest
 {name of enemy or ally}
