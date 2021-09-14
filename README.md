@@ -33,6 +33,8 @@ ally(#) *same with enemy but it's 0-2 because self.
 
 boss
 
+ally name *ex: tri[sharp] @ anthony*
+
 aoe *if you have an aoe, you can leave targeting blank i.e. tempest[epic] or for no enchant tempest
 {name of enemy or ally}
 
