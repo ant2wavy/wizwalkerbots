@@ -122,10 +122,9 @@ async def main(sprinter):
             await asyncio.sleep(1)
 
             # Moving to boss fight
-
-            await p1.goto(-4.737403869628906, 1129.42529296875)
+            await p1.goto(-4.737403869628906, 1129.42529296875)  # walks to detritus door
             await p1.wait_for_zone_change()
-            await p1.send_key(Keycode.W, 0.6)
+            await p1.send_key(Keycode.W, 0.6)  # walks to trigger dialogue
             await asyncio.sleep(1)
             await asyncio.gather(*[go_through_dialog(p) for p in clients])
             await asyncio.sleep(1)
@@ -171,7 +170,7 @@ async def main(sprinter):
                 await asyncio.sleep(1)
 
             # Checking for healing
-            await asyncio.gather(*[p.use_potion_if_needed(health_percent=40, mana_percent=10) for p in clients])
+            await asyncio.gather(*[p.use_potion_if_needed(health_percent=40, mana_percent=20) for p in clients])
             await asyncio.sleep(1)
             await p1.send_key(Keycode.PAGE_DOWN, 0.1)
 
@@ -251,7 +250,7 @@ async def main(sprinter):
                 await asyncio.sleep(1)
 
             # Checking for healing
-            await asyncio.gather(*[p.use_potion_if_needed(health_percent=40, mana_percent=10) for p in clients])
+            await asyncio.gather(*[p.use_potion_if_needed(health_percent=40, mana_percent=20) for p in clients])
             await asyncio.sleep(1)
             await p1.send_key(Keycode.PAGE_DOWN, 0.1)
 
@@ -364,7 +363,7 @@ async def main(sprinter):
                 await asyncio.sleep(1)
 
             # Checking for healing
-            await asyncio.gather(*[p.use_potion_if_needed(health_percent=40, mana_percent=10) for p in clients])
+            await asyncio.gather(*[p.use_potion_if_needed(health_percent=40, mana_percent=20) for p in clients])
             await asyncio.sleep(1)
             await p1.send_key(Keycode.PAGE_DOWN, 0.1)
 
