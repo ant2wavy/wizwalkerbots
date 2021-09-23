@@ -192,3 +192,4 @@ async def logout_and_in(client):
         await asyncio.sleep(8)
         await client.mouse_handler.click_window_with_name('btnPlay')
         await client.wait_for_zone_change()
+
