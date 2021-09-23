@@ -36,15 +36,16 @@ async def main(sprinter):
         print()
 
         # Battle starter
-
         ready_to_join = await asyncio.gather(*[initiate_combat(p1)])
         if ready_to_join:
             print(f"[p1] is in the duel circle.")
+            await asyncio.sleep(1)
             p1pos = await p1.body.position()
             # p2-p4 sent into duel circle
             for p in clients[1:]:
                 print(f"[{p.title}] is now joining the duel circle.")
                 await asyncio.gather(*[join_combat(p1pos, p)])
+                await p.send_key(Keycode.W, 0.1)
 
         # Battle 2.0:
         print("Preparing combat configs")
@@ -60,9 +61,8 @@ async def main(sprinter):
         print()
 
         # Returning to safe spot
-        for p in clients:
-            await p.teleport(safe_location)
-            await asyncio.sleep(0.8)
+        await asyncio.gather(*[p.goto(safe_location.x, safe_location.y) for p in clients])
+        await asyncio.sleep(2)
 
         # Healing
         await asyncio.gather(*[p.use_potion_if_needed(health_percent=35, mana_percent=5) for p in
